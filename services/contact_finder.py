@@ -1,4 +1,3 @@
-import random
 CONTACTS = [
     ("Sarah Johnson", "CEO"),
     ("Michael Chen", "CTO"),
