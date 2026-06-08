@@ -2,24 +2,58 @@
 
 ## Overview
 
-Automated Outreach Pipeline is a Python-based cold outreach automation system that discovers companies, generates contacts, resolves email addresses, exports prospect data, and sends personalized outreach emails through the Brevo Email API.
+Automated Outreach Pipeline is a Python-based lead generation and outreach automation system that processes a target company domain, discovers relevant companies and contacts, generates personalized outreach emails, exports prospect data, and delivers emails using the Brevo Email API.
 
-The project was developed as part of an SDE Internship assignment and demonstrates a complete end-to-end outreach workflow.
+The project demonstrates an end-to-end outreach workflow including prospect discovery, contact management, personalization, data export, and transactional email delivery.
 
 ---
 
 ## Features
 
-* Company Discovery
-* Contact Discovery
-* Email Resolution
-* Contact Deduplication
-* CSV Export
-* Personalized Email Generation
-* Safety Checkpoint Before Sending
-* Logging
-* Brevo Email API Integration
-* Modular Architecture
+- Company Discovery
+- Contact Discovery
+- Email Resolution
+- Contact Deduplication
+- CSV Export
+- Personalized Email Generation
+- Safety Checkpoint Before Sending
+- Logging and Monitoring
+- Brevo Email API Integration
+- Modular Architecture
+- Environment Variable Configuration
+- Error Handling
+
+---
+
+## Architecture
+
+```text
+Input Domain
+      │
+      ▼
+Company Discovery
+      │
+      ▼
+Contact Discovery
+      │
+      ▼
+Email Resolution
+      │
+      ▼
+Deduplication
+      │
+      ▼
+CSV Export
+      │
+      ▼
+Safety Checkpoint
+      │
+      ▼
+Brevo Email API
+      │
+      ▼
+Email Delivery
+```
 
 ---
 
@@ -54,79 +88,56 @@ automated-outreach-pipeline/
 │   ├── contacts.csv
 │   └── emails.csv
 │
+├── assets/
+│   ├── pipeline-run.png
+│   ├── contact-preview.png
+│   ├── csv-files.png
+│   ├── brevo-success.png
+│   └── email-received.png
+│
 └── tests/
     └── test_company_finder.py
 ```
 
 ---
 
-## Workflow
-
-```text
-Input Domain
-      │
-      ▼
-Company Discovery
-      │
-      ▼
-Contact Discovery
-      │
-      ▼
-Email Resolution
-      │
-      ▼
-Deduplication
-      │
-      ▼
-CSV Export
-      │
-      ▼
-Safety Checkpoint
-      │
-      ▼
-Brevo Email API
-      │
-      ▼
-Email Delivery
-```
-
----
-
 ## Technologies Used
 
-* Python
-* Pandas
-* Requests
-* Python Dotenv
-* Rich
-* Git
-* GitHub
-* Brevo API
+- Python
+- Pandas
+- Requests
+- Python Dotenv
+- Rich
+- Git
+- GitHub
+- Brevo API
 
 ---
 
 ## Installation
 
-Clone the repository:
+### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Girishg0wda/automated-outreach-pipeline.git
 cd automated-outreach-pipeline
 ```
 
-Create virtual environment:
+### Create Virtual Environment
 
 ```bash
 python -m venv env
 ```
 
-Activate environment:
+### Activate Environment
+
+Windows:
 
 ```bash
 env\Scripts\activate
 ```
 
-Install dependencies:
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -136,7 +147,7 @@ pip install -r requirements.txt
 
 ## Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the root directory:
 
 ```env
 BREVO_API_KEY=your_brevo_api_key
@@ -150,7 +161,7 @@ BREVO_API_KEY=your_brevo_api_key
 python main.py
 ```
 
-Example Input:
+### Example Input
 
 ```text
 openai.com
@@ -160,7 +171,7 @@ openai.com
 
 ## Output Files
 
-The pipeline generates:
+The pipeline automatically generates:
 
 ```text
 outputs/companies.csv
@@ -174,40 +185,72 @@ outputs/emails.csv
 
 ### Pipeline Execution
 
-Add: `assets/pipeline-run.png`
+![Pipeline Execution](assets/pipeline-run.png)
 
 ### Contact Discovery
 
-Add: `assets/contacts-preview.png`
+![Contact Discovery](assets/contact-preview.png)
 
-### CSV Export
+### CSV Output Files
 
-Add: `assets/csv-output.png`
+![CSV Output Files](assets/csv-files.png)
 
-### Brevo API Success
+### Brevo API Integration
 
-Add: `assets/brevo-success.png`
+![Brevo Integration](assets/brevo-success.png)
 
 ### Email Received
 
-Add: `assets/email-received.png`
+![Email Received](assets/email-received.png)
+
+---
+
+## Sample Workflow
+
+1. User enters a company domain.
+2. System discovers related companies.
+3. Contacts are generated for each company.
+4. Email addresses are resolved.
+5. Duplicate contacts are removed.
+6. Results are exported to CSV files.
+7. User confirms outreach.
+8. Personalized emails are generated.
+9. Emails are delivered through Brevo API.
 
 ---
 
 ## Future Improvements
 
-* Domain Verification
-* Custom Business Email Sender
-* Real Company Discovery APIs
-* Real Contact Discovery APIs
-* Batch Scheduling
-* Analytics Dashboard
-* Campaign Tracking
+- Domain Verification
+- Custom Business Email Sender
+- Real Company Discovery APIs
+- Real Contact Discovery APIs
+- Batch Scheduling
+- Analytics Dashboard
+- Campaign Tracking
+- Lead Scoring
+- CRM Integration
+
+---
+
+## Testing
+
+Run tests using:
+
+```bash
+pytest
+```
 
 ---
 
 ## Author
 
-Girish Gowda
+**Girish R**
 
-GitHub: https://github.com/<your-username>
+GitHub: https://github.com/Girishg0wda
+
+---
+
+## License
+
+This project was created for educational and internship assessment purposes.
