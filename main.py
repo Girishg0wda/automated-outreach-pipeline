@@ -31,7 +31,6 @@ def main():
         return
 
     # STAGE 2 - CONTACT DISCOVERY
-
     print("\n[STAGE 2] Contact Discovery")
 
     all_contacts = []
@@ -44,19 +43,14 @@ def main():
 
             for contact in contacts:
 
-                email = find_email(contact)
-
                 contact["company"] = company
-                contact["email"] = email
+                contact["email"] = find_email(contact)
 
                 all_contacts.append(contact)
 
         except Exception as e:
 
-            print(
-                f"Failed processing {company}: {e}"
-            )
-
+            print(f"Failed processing {company}: {e}")
             continue
 
     print(f"Found {len(all_contacts)} contacts")
@@ -87,18 +81,13 @@ def main():
 
     contacts_df = pd.DataFrame(all_contacts)
 
-    companies_df = pd.DataFrame(
-        {"company": companies}
-    )
+    companies_df = pd.DataFrame({
+        "company": companies
+    })
 
-    emails_df = pd.DataFrame(
-        {
-            "email": [
-                contact["email"]
-                for contact in all_contacts
-            ]
-        }
-    )
+    emails_df = pd.DataFrame({
+        "email": [c["email"] for c in all_contacts]
+    })
 
     companies_df.to_csv(
         "outputs/companies.csv",
@@ -160,20 +149,22 @@ def main():
 
     print("\n[STAGE 5] Outreach")
 
+    TEST_EMAIL = "girishgowda0239@gmail.com"
+
     for contact in all_contacts:
 
         try:
 
             send_email(
                 contact,
-                contact["email"]
+                TEST_EMAIL
             )
 
         except Exception as e:
 
             print(
-                f"Failed sending email to "
-                f"{contact['email']}: {e}"
+                f"Failed sending email for "
+                f"{contact['name']}: {e}"
             )
 
     print("\nPipeline completed successfully!")

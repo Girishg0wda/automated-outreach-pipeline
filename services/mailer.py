@@ -1,5 +1,6 @@
 from rich import print
 from utils.logger import logger
+from services.brevo import send_brevo_email
 
 
 def generate_email(contact):
@@ -22,15 +23,25 @@ def send_email(contact, email):
 
     email_body = generate_email(contact)
 
+    status_code, response = send_brevo_email(
+    recipient_email=email,
+    recipient_name=contact["name"],
+    subject="Automated Outreach Demo",
+    html_content=email_body.replace("\n", "<br>")
+    )
+
+    print(f"Status Code: {status_code}")
+    print(f"Response: {response}")
+
     logger.info(
-        f"Sending email to {email}"
+        f"Email to {email} - {status_code}"
     )
 
-    print("\n" + "=" * 50)
-    print(f"TO: {email}")
-    print("=" * 50)
-    print(email_body)
-
-    print(
-        f"\n[green]Email sent to {email}[/green]"
-    )
+    if status_code == 201:
+        print(
+            f"[green]✓ Email sent to {email}[/green]"
+        )
+    else:
+        print(
+            f"[red]✗ Email failed ({status_code})[/red]"
+        )
