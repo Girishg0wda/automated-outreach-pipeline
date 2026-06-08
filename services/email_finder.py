@@ -1,8 +1,11 @@
 def find_email(contact):
+
     username = (
         contact["name"]
         .lower()
         .replace(" ", ".")
     )
 
-    return f"{username}@company.com"
+    company_domain = contact["company"]
+
+    return f"{username}@{company_domain}"

@@ -1,0 +1,10 @@
+Hi {name},
+
+I came across {company} and was impressed by the work your team is doing.
+
+We're building solutions that help organizations automate prospecting and outreach workflows.
+
+Would you be open to a quick conversation this week?
+
+Best regards,
+Girish

@@ -5,16 +5,25 @@ CONTACTS = [
     ("Michael Chen", "CTO"),
     ("David Brown", "VP Engineering"),
     ("Emma Wilson", "Head of Product"),
+    ("Alex Morgan", "Founder"),
 ]
+
+counter = 0
 
 def find_contacts(company):
 
-    name, title = random.choice(CONTACTS)
+    global counter
+
+    name, title = CONTACTS[
+        counter % len(CONTACTS)
+    ]
+
+    counter += 1
 
     return [
         {
             "name": name,
             "title": title,
-            "linkedin": f"https://linkedin.com/in/{company.split('.')[0]}"
+            "linkedin": f"https://linkedin.com/in/{name.lower().replace(' ', '-')}"
         }
     ]

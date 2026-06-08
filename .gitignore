@@ -1,11 +1,6 @@
 env/
+venv/
 __pycache__/
-*.pyc
-
 .env
-
 outputs/*.csv
 pipeline.log
-
-.vscode/
-.idea/
