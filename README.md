@@ -39,3 +39,29 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+## Architecture
+
+```text
+Input Domain
+      │
+      ▼
+Company Discovery
+      │
+      ▼
+Contact Discovery
+      │
+      ▼
+Email Resolution
+      │
+      ▼
+Deduplication
+      │
+      ▼
+CSV Export
+      │
+      ▼
+Safety Checkpoint
+      │
+      ▼
+Outreach Engine
+```

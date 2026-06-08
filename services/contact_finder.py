@@ -1,5 +1,4 @@
 import random
-
 CONTACTS = [
     ("Sarah Johnson", "CEO"),
     ("Michael Chen", "CTO"),
@@ -24,6 +23,9 @@ def find_contacts(company):
         {
             "name": name,
             "title": title,
-            "linkedin": f"https://linkedin.com/in/{name.lower().replace(' ', '-')}"
+            "linkedin": (
+                f"https://linkedin.com/in/"
+                f"{name.lower().replace(' ', '-')}"
+            )
         }
     ]
