@@ -189,7 +189,7 @@ outputs/emails.csv
 
 ### Contact Discovery
 
-![Contact Discovery](assets/contact-preview.png)
+![Contact Discovery](assets/contacts-preview.png)
 
 ### CSV Output Files
 
